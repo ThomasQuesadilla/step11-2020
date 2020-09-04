@@ -1,0 +1,58 @@
+{#  Copyright 2020 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.  #}
+
+{% extends "base.html" %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="static/styles/mentorship-requests.css">
+{% endblock %}
+
+{% block page_title %}Mentorship Requests{% endblock %}
+
+{% block main_content %}
+<div class="px-3" id="mentorship-requests-tips">
+  {% raw %}{% if mentorshipRequests|length > 0 %}
+    <p class="m-0">Connect with some mentees and help them through their journey!</p>
+  {% else %}
+    <p class="m-0">
+      You haven't been contacted by any mentees yet!
+    </p>
+  {% endif %}{% endraw %}
+</div>
+<div class="row no-gutters mw-100" id="mentee-card-container">
+  {% raw %}{% for request in mentorshipRequests %}
+    {% set mentee = request.fromUser %}
+    <div class="mentee-card card-container col-12 col-xl-6">
+      <div class="card mx-3 mb-3" id="user-{{ mentee.userID }}">
+        <p class="invisible d-none request-id">{{request.datastoreKey}}</p>
+        <div class="card-body d-flex flex-column align-items-start justify-content-start position-relative">
+          {% set profileCardUser = mentee %}
+          {% set profileCardLink = true %}
+          {% include "profile-card.html" %}
+        </div>
+        <div class="card-body btn-group-vertical request-buttons w-100" role="group" aria-label="Basic example">
+          <button class="btn btn-outline-secondary" id="yes">Accept</button>
+          <button class="btn btn-outline-danger" id="no">Decline</button>
+        </div>
+      </div>
+    </div>
+  {% endfor %} {% endraw %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script charset="utf-8" type="text/javascript" src="static/scripts/mentorship-requests.js"></script>
+{% endblock %}

@@ -1,0 +1,48 @@
+{#  Copyright 2020 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.  #}
+
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" type="text/css" href="static/styles/authors.css">
+{% endblock %}
+
+{% block page_title %}Meet the Creators{% endblock %}
+
+{% block main_content %}
+<div class="content-block" id="creator-cards-container">
+  <div class="creator-card" id="thomas-card">
+    <img class="creator-picture" src="static/images/thomas.jpg" alt="Thomas Quintanilla" />
+    <br>
+    <h3 class="creator-name">Thomas Quintanilla</h3>
+    <p class="creator-college">Duke University</p>
+    <p class="creator-description">I'm a rising junior at Duke University studying Computer Science and Electrical-Computer Engineering. As someone who's been a part of many mentorship programs, I know how hard it is to find someone that fits well with you, so I hope this website can help.</p>
+  </div>
+  <div class="creator-card" id="sylvia-card">
+    <img class="creator-picture" src="static/images/sylvia.jpg" alt="Sylvia Ziyu Zhang" />
+    <br>
+    <h3 class="creator-name">Sylvia Ziyu Zhang</h3>
+    <p class="creator-college">Carnegie Mellon University</p>
+    <p class="creator-description">I'm a rising junior at Carnegie Mellon University majoring in computer science with a concentration in algorithms and complexity. I'm originally from a small town in China and online learning helped me get where I am today. I hope our website could help you in the same way.</p>
+  </div>
+  <div class="creator-card" id="mudit-card">
+    <img class="creator-picture" src="static/images/mudit.jpg" alt="Mudit Gupta" />
+    <br>
+    <h3 class="creator-name">Mudit Gupta</h3>
+    <p class="creator-college">Georgia Institute of Technology</p>
+    <p class="creator-description">I'm a computer science student at GT. I love teaching and helping others, so I'm glad that you're looking into the Mentor Matcher platform that we've built for you!</p>
+  </div>
+</div>
+{% endblock %}
